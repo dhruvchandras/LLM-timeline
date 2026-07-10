@@ -41,8 +41,10 @@ function dateToDay(dateStr, rangeStart) {
 
 const DOT_TOP = 10;
 const ROW_HEIGHT = 16;
-const DOT_MAX_RADIUS = 10;
-const LABEL_TOP_BASE = DOT_TOP + DOT_MAX_RADIUS + 5;
+// Must match ModelDot.jsx's LABEL_TOP_BASE — dots are positioned by top-left,
+// so this needs to clear the full max dot height (19px), not just its radius.
+const DOT_MAX_HEIGHT = 19;
+const LABEL_TOP_BASE = DOT_TOP + DOT_MAX_HEIGHT + 6;
 const LANE_HEADER_WIDTH = 150;
 
 export default function Timeline({

@@ -3,8 +3,10 @@ import { MODALITY_META } from '../data/providers.js';
 const NOTABILITY_SIZES = [8, 10, 12, 15, 19];
 const DOT_TOP = 10;
 const ROW_HEIGHT = 16;
-const DOT_MAX_RADIUS = 10;
-const LABEL_TOP_BASE = DOT_TOP + DOT_MAX_RADIUS + 5;
+// Dots are positioned by top-left (see `top: DOT_TOP` below), not centre, so
+// the label must clear the full dot height (largest = 19px), not just its radius.
+const DOT_MAX_HEIGHT = 19;
+const LABEL_TOP_BASE = DOT_TOP + DOT_MAX_HEIGHT + 6;
 
 function shortName(name) {
   return name.length > 32 ? name.slice(0, 30).trimEnd() + '…' : name;
