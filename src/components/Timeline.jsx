@@ -15,12 +15,12 @@ function labelWidth(name) {
 // Greedy row-assignment: sorts models by x position, then assigns each to
 // the first row whose rightmost placed label doesn't overlap this one.
 function assignLabelRows(laneModels, getX) {
-  const sorted = [...laneModels].sort((a, b) => getX(a.releaseDate) - getX(b.releaseDate));
+  const sorted = [...laneModels].sort((a, b) => getX(a) - getX(b));
   const rowRightEdge = {};
   const result = {};
 
   for (const m of sorted) {
-    const cx = getX(m.releaseDate);
+    const cx = getX(m);
     const hw = labelWidth(m.name) / 2;
     const left = cx - hw;
 
@@ -33,6 +33,39 @@ function assignLabelRows(laneModels, getX) {
   }
 
   return result;
+}
+
+const SAME_DATE_SPACING = 9; // px between dot centres when multiple releases share a date
+
+// Multiple same-provider releases on the same date land on the exact same x,
+// producing fully-overlapping concentric dots (the largest one swallows clicks
+// on the smaller ones underneath) — spread same-x dots out horizontally so
+// every dot stays independently visible and clickable.
+function computeDotX(laneModels, dateX) {
+  const baseX = {};
+  laneModels.forEach(m => { baseX[m.id] = dateX(m.releaseDate); });
+
+  const groups = {};
+  laneModels.forEach(m => {
+    const key = Math.round(baseX[m.id]);
+    (groups[key] ??= []).push(m);
+  });
+
+  const finalX = {};
+  Object.values(groups).forEach(group => {
+    if (group.length === 1) {
+      finalX[group[0].id] = baseX[group[0].id];
+      return;
+    }
+    group
+      .slice()
+      .sort((a, b) => b.notability - a.notability)
+      .forEach((m, i) => {
+        finalX[m.id] = baseX[m.id] + (i - (group.length - 1) / 2) * SAME_DATE_SPACING;
+      });
+  });
+
+  return finalX;
 }
 
 function dateToDay(dateStr, rangeStart) {
@@ -115,10 +148,11 @@ export default function Timeline({
   const laneData = {};
   Object.keys(PROVIDER_META).forEach(providerKey => {
     const laneModels = byProvider[providerKey];
-    const rowAssign  = assignLabelRows(laneModels, dateX);
+    const xById      = computeDotX(laneModels, dateX);
+    const rowAssign  = assignLabelRows(laneModels, m => xById[m.id]);
     const maxRow     = laneModels.length ? Math.max(...laneModels.map(m => rowAssign[m.id])) : 0;
     const laneHeight = LABEL_TOP_BASE + (maxRow + 1) * ROW_HEIGHT + 6;
-    laneData[providerKey] = { rowAssign, laneHeight };
+    laneData[providerKey] = { xById, rowAssign, laneHeight };
   });
 
   const toggleLane  = (p) => setCollapsedLanes(prev => ({ ...prev, [p]: !prev[p] }));
@@ -211,7 +245,7 @@ export default function Timeline({
                       const meta = PROVIDER_META[providerKey];
                       const laneModels = byProvider[providerKey];
                       const isCollapsed = collapsedLanes[providerKey];
-                      const { rowAssign, laneHeight } = laneData[providerKey];
+                      const { xById, rowAssign, laneHeight } = laneData[providerKey];
 
                       return (
                         <div key={providerKey} className="provider-lane">
@@ -243,7 +277,7 @@ export default function Timeline({
                               <ModelDot
                                 key={m.id}
                                 model={m}
-                                x={dateX(m.releaseDate) - LANE_HEADER_WIDTH}
+                                x={xById[m.id] - LANE_HEADER_WIDTH}
                                 labelRow={rowAssign[m.id] ?? 0}
                                 isSelected={selectedModel?.id === m.id}
                                 onClick={() => onSelectModel(m)}
