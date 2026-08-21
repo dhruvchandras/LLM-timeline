@@ -1,4 +1,6 @@
-export const models = [
+import { mediaModels } from './models-media.js';
+
+const chatModels = [
   // ── OpenAI ──────────────────────────────────────────
   {
     id: 'openai-gpt-35-turbo-202211', name: 'GPT-3.5-turbo', version: 'gpt-3.5-turbo (initial ChatGPT release)',
@@ -1923,3 +1925,5 @@ export const models = [
     sourceUrls: ['https://datanorth.ai/news/bytedance-releases-seed-2-1-pro-and-seed-2-1-turbo'], relatedModelIds: ['bytedance-doubaoseed2.0-202602'],
   },
 ];
+
+export const models = [...chatModels, ...mediaModels];
