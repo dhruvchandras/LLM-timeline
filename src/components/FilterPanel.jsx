@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { GROUP_META, PROVIDER_META, MODALITY_META, RELEASE_TYPE_META, CATEGORY_META, RANGE_START, DATA_AS_OF } from '../data/providers.js';
+import { GROUP_META, PROVIDER_META, RELEASE_TYPE_META, CATEGORY_META, RANGE_START, DATA_AS_OF } from '../data/providers.js';
 
 const ALL_GROUPS       = Object.keys(GROUP_META).sort((a, b) => GROUP_META[a].order - GROUP_META[b].order);
 const ALL_PROVIDERS    = Object.keys(PROVIDER_META);
-const ALL_MODALITIES   = Object.keys(MODALITY_META);
 const ALL_RELEASETYPES = Object.keys(RELEASE_TYPE_META);
 const ALL_CATEGORIES   = Object.keys(CATEGORY_META);
 
@@ -33,7 +32,6 @@ function SelectAllNone({ allKeys, activeSet, onSetAll, onSetNone }) {
 export default function FilterPanel({
   groups,       onToggleGroup,       onSetGroups,
   providers,    onToggleProvider,    onSetProviders,
-  modalities,   onToggleModality,    onSetModalities,
   releaseTypes, onToggleReleaseType, onSetReleaseTypes,
   categories,   onToggleCategory,    onSetCategories,
   dateRange, onDateRange,
@@ -130,25 +128,6 @@ export default function FilterPanel({
           >
             <span style={{ fontSize: 12, width: 16, textAlign: 'center', flexShrink: 0 }}>{CATEGORY_META[key].icon}</span>
             <span className="toggle-label">{CATEGORY_META[key].label}</span>
-            <span className="toggle-check">✓</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Modality */}
-      <div className="filter-section">
-        <div className="filter-section-header">
-          <div className="filter-section-title">Modality</div>
-          <SelectAllNone allKeys={ALL_MODALITIES} activeSet={modalities} onSetAll={onSetModalities} onSetNone={onSetModalities} />
-        </div>
-        {ALL_MODALITIES.map(key => (
-          <div
-            key={key}
-            className={`filter-toggle-row ${modalities.has(key) ? 'active' : ''}`}
-            onClick={() => onToggleModality(key)}
-          >
-            <span style={{ fontSize: 12, width: 16, textAlign: 'center', flexShrink: 0 }}>{MODALITY_META[key].icon}</span>
-            <span className="toggle-label">{MODALITY_META[key].label}</span>
             <span className="toggle-check">✓</span>
           </div>
         ))}
