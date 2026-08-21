@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { GROUP_META, PROVIDER_META, MODALITY_META, RELEASE_TYPE_META, RANGE_START, DATA_AS_OF } from '../data/providers.js';
+import { GROUP_META, PROVIDER_META, MODALITY_META, RELEASE_TYPE_META, CATEGORY_META, RANGE_START, DATA_AS_OF } from '../data/providers.js';
 
 const ALL_GROUPS       = Object.keys(GROUP_META).sort((a, b) => GROUP_META[a].order - GROUP_META[b].order);
 const ALL_PROVIDERS    = Object.keys(PROVIDER_META);
 const ALL_MODALITIES   = Object.keys(MODALITY_META);
 const ALL_RELEASETYPES = Object.keys(RELEASE_TYPE_META);
+const ALL_CATEGORIES   = Object.keys(CATEGORY_META);
 
 function dayToDate(day) {
   const d = new Date(RANGE_START.getTime() + day * 86400000);
@@ -34,6 +35,7 @@ export default function FilterPanel({
   providers,    onToggleProvider,    onSetProviders,
   modalities,   onToggleModality,    onSetModalities,
   releaseTypes, onToggleReleaseType, onSetReleaseTypes,
+  categories,   onToggleCategory,    onSetCategories,
   dateRange, onDateRange,
   rangeDays,
   onReset,
@@ -110,6 +112,25 @@ export default function FilterPanel({
                 <span className="toggle-check">✓</span>
               </div>
             ))}
+          </div>
+        ))}
+      </div>
+
+      {/* Model Type */}
+      <div className="filter-section">
+        <div className="filter-section-header">
+          <div className="filter-section-title">Model Type</div>
+          <SelectAllNone allKeys={ALL_CATEGORIES} activeSet={categories} onSetAll={onSetCategories} onSetNone={onSetCategories} />
+        </div>
+        {ALL_CATEGORIES.map(key => (
+          <div
+            key={key}
+            className={`filter-toggle-row ${categories.has(key) ? 'active' : ''}`}
+            onClick={() => onToggleCategory(key)}
+          >
+            <span style={{ fontSize: 12, width: 16, textAlign: 'center', flexShrink: 0 }}>{CATEGORY_META[key].icon}</span>
+            <span className="toggle-label">{CATEGORY_META[key].label}</span>
+            <span className="toggle-check">✓</span>
           </div>
         ))}
       </div>

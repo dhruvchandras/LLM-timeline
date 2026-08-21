@@ -1,4 +1,4 @@
-import { MODALITY_META } from '../data/providers.js';
+import { MODALITY_META, CATEGORY_META, DEFAULT_CATEGORY } from '../data/providers.js';
 
 const NOTABILITY_SIZES = [8, 10, 12, 15, 19];
 const DOT_TOP = 10;
@@ -14,7 +14,8 @@ function shortName(name) {
 
 export default function ModelDot({ model, x, labelRow, isSelected, onClick, onMouseEnter, onMouseMove, onMouseLeave, providerColor }) {
   const size = NOTABILITY_SIZES[model.notability - 1] ?? 12;
-  const icon = MODALITY_META[model.modalities?.[0]]?.icon ?? '';
+  const category = model.category ?? DEFAULT_CATEGORY;
+  const icon = category === 'chat' ? (MODALITY_META[model.modalities?.[0]]?.icon ?? '') : (CATEGORY_META[category]?.icon ?? '');
   const fill = providerColor + 'bb';
   const border = providerColor;
   const labelTop = LABEL_TOP_BASE + labelRow * ROW_HEIGHT;

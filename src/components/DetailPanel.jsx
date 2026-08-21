@@ -1,4 +1,4 @@
-import { PROVIDER_META, GROUP_META, MODALITY_META, RELEASE_TYPE_META } from '../data/providers.js';
+import { PROVIDER_META, GROUP_META, MODALITY_META, RELEASE_TYPE_META, CATEGORY_META, DEFAULT_CATEGORY } from '../data/providers.js';
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -11,9 +11,10 @@ function formatContextWindow(n) {
   return `${n} tokens`;
 }
 
-function formatPrice(p) {
-  if (!p) return 'Not publicly priced';
-  return `$${p.input.toFixed(2)} in / $${p.output.toFixed(2)} out per 1M tokens`;
+function formatPrice(model) {
+  if (model.pricingNote) return model.pricingNote;
+  if (model.pricing) return `$${model.pricing.input.toFixed(2)} in / $${model.pricing.output.toFixed(2)} out per 1M tokens`;
+  return 'Not publicly priced';
 }
 
 function Stars({ n }) {
@@ -30,6 +31,8 @@ export default function DetailPanel({ model, allModels, onClose, onNavigate }) {
   const provider = PROVIDER_META[model.provider];
   const group = GROUP_META[provider?.group];
   const releaseType = RELEASE_TYPE_META[model.releaseType];
+  const category = CATEGORY_META[model.category ?? DEFAULT_CATEGORY];
+  const isChat = (model.category ?? DEFAULT_CATEGORY) === 'chat';
 
   const relatedModels = (model.relatedModelIds || [])
     .map(id => allModels.find(m => m.id === id))
@@ -54,6 +57,7 @@ export default function DetailPanel({ model, allModels, onClose, onNavigate }) {
             {provider?.label}
           </span>
           <span className="detail-tag">{group?.label}</span>
+          <span className="detail-tag">{category?.icon} {category?.label}</span>
           {model.modalities?.map(mod => (
             <span key={mod} className="detail-tag">{MODALITY_META[mod]?.icon} {MODALITY_META[mod]?.label}</span>
           ))}
@@ -75,13 +79,15 @@ export default function DetailPanel({ model, allModels, onClose, onNavigate }) {
         <div>
           <div className="detail-section-label">Specs</div>
           <div className="detail-specs">
-            <div className="spec-row">
-              <span className="spec-label">Context window</span>
-              <span className="spec-value">{formatContextWindow(model.contextWindow)}</span>
-            </div>
+            {(isChat || model.contextWindow) && (
+              <div className="spec-row">
+                <span className="spec-label">Context window</span>
+                <span className="spec-value">{formatContextWindow(model.contextWindow)}</span>
+              </div>
+            )}
             <div className="spec-row">
               <span className="spec-label">Pricing</span>
-              <span className="spec-value">{formatPrice(model.pricing)}</span>
+              <span className="spec-value">{formatPrice(model)}</span>
             </div>
           </div>
         </div>

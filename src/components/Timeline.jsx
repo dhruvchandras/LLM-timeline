@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
-import { GROUP_META, PROVIDER_META, MODALITY_META, RANGE_START, getRangeEnd } from '../data/providers.js';
+import { GROUP_META, PROVIDER_META, MODALITY_META, CATEGORY_META, DEFAULT_CATEGORY, RANGE_START, getRangeEnd } from '../data/providers.js';
 import ModelDot from './ModelDot.jsx';
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -327,6 +327,7 @@ function Tooltip({ model, x, y }) {
       <div className="tooltip-meta">
         <span className="tooltip-tag" style={{ color: meta.color, borderColor: meta.color + '44' }}>{meta.shortLabel}</span>
         <span className="tooltip-tag">{groupMeta.label}</span>
+        <span className="tooltip-tag">{CATEGORY_META[model.category ?? DEFAULT_CATEGORY]?.icon} {CATEGORY_META[model.category ?? DEFAULT_CATEGORY]?.label}</span>
         {model.modalities?.map(mod => (
           <span key={mod} className="tooltip-tag">{MODALITY_META[mod]?.icon} {MODALITY_META[mod]?.label}</span>
         ))}

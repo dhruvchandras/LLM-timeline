@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { models } from './data/models.js';
-import { GROUP_META, PROVIDER_META, MODALITY_META, RELEASE_TYPE_META, RANGE_START, getRangeEnd } from './data/providers.js';
+import { GROUP_META, PROVIDER_META, MODALITY_META, RELEASE_TYPE_META, CATEGORY_META, DEFAULT_CATEGORY, RANGE_START, getRangeEnd } from './data/providers.js';
 import FilterPanel from './components/FilterPanel.jsx';
 import Timeline from './components/Timeline.jsx';
 import DetailPanel from './components/DetailPanel.jsx';
@@ -9,6 +9,7 @@ const ALL_GROUPS       = Object.keys(GROUP_META);
 const ALL_PROVIDERS    = Object.keys(PROVIDER_META);
 const ALL_MODALITIES   = Object.keys(MODALITY_META);
 const ALL_RELEASETYPES = Object.keys(RELEASE_TYPE_META);
+const ALL_CATEGORIES   = Object.keys(CATEGORY_META);
 const RANGE_DAYS = Math.round((getRangeEnd() - RANGE_START) / 86400000);
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
   const [providers, setProviders]       = useState(new Set(ALL_PROVIDERS));
   const [modalities, setModalities]     = useState(new Set(ALL_MODALITIES));
   const [releaseTypes, setReleaseTypes] = useState(new Set(ALL_RELEASETYPES));
+  const [categories, setCategories]     = useState(new Set(ALL_CATEGORIES));
   const [dateRange, setDateRange]       = useState([0, RANGE_DAYS]);
   const [selectedModel, setSelectedModel] = useState(null);
   const [zoom, setZoom] = useState(2);
@@ -29,11 +31,12 @@ export default function App() {
       if (!providers.has(m.provider)) return false;
       if (!m.modalities?.some(mod => modalities.has(mod))) return false;
       if (!releaseTypes.has(m.releaseType)) return false;
+      if (!categories.has(m.category ?? DEFAULT_CATEGORY)) return false;
       const day = Math.round((new Date(m.releaseDate) - RANGE_START) / 86400000);
       if (day < startDay || day > endDay) return false;
       return true;
     });
-  }, [groups, providers, modalities, releaseTypes, dateRange]);
+  }, [groups, providers, modalities, releaseTypes, categories, dateRange]);
 
   const toggleSet = useCallback((setter, key) => {
     setter(prev => {
@@ -48,6 +51,7 @@ export default function App() {
     setProviders(new Set(ALL_PROVIDERS));
     setModalities(new Set(ALL_MODALITIES));
     setReleaseTypes(new Set(ALL_RELEASETYPES));
+    setCategories(new Set(ALL_CATEGORIES));
     setDateRange([0, RANGE_DAYS]);
   }, []);
 
@@ -71,6 +75,7 @@ export default function App() {
           providers={providers} onToggleProvider={k => toggleSet(setProviders, k)} onSetProviders={setProviders}
           modalities={modalities} onToggleModality={k => toggleSet(setModalities, k)} onSetModalities={setModalities}
           releaseTypes={releaseTypes} onToggleReleaseType={k => toggleSet(setReleaseTypes, k)} onSetReleaseTypes={setReleaseTypes}
+          categories={categories} onToggleCategory={k => toggleSet(setCategories, k)} onSetCategories={setCategories}
           dateRange={dateRange} onDateRange={setDateRange}
           rangeDays={RANGE_DAYS}
           onReset={reset}

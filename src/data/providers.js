@@ -52,6 +52,18 @@ export const MODALITY_META = {
   multimodal: { label: 'Multimodal', icon: '✨' },
 };
 
+// Primary function of the release. Models with no `category` field default to
+// 'chat' (the original scope) so the ~220 pre-existing entries don't need edits.
+export const CATEGORY_META = {
+  chat:      { label: 'Chat / Text',   icon: '💬', description: 'Conversational or reasoning LLM' },
+  image:     { label: 'Image Gen',     icon: '🖼', description: 'Text-to-image generation or editing' },
+  audio:     { label: 'Voice / Audio', icon: '🎙', description: 'Speech synthesis (TTS) or recognition (ASR)' },
+  video:     { label: 'Video Gen',     icon: '🎬', description: 'Text-to-video or video editing' },
+  document:  { label: 'Document / OCR', icon: '📄', description: 'Document parsing, OCR, structured extraction' },
+  embedding: { label: 'Embedding',     icon: '🔗', description: 'Text/multimodal embedding model' },
+};
+export const DEFAULT_CATEGORY = 'chat';
+
 export const RELEASE_TYPE_META = {
   flagship:      { label: 'Flagship',        description: 'Primary top-tier release' },
   mini:          { label: 'Mini / Efficient', description: 'Smaller, faster, cheaper variant' },
