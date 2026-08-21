@@ -238,6 +238,15 @@ export const models = [
     blurb: 'The fastest and most affordable model in the GPT-5.6 family, designed for high-volume, low-latency use cases.',
     sourceUrls: ['https://openai.com/index/previewing-gpt-5-6-sol/'], relatedModelIds: ['openai-gpt-56-sol-202607'],
   },
+  {
+    id: 'openai-gpt56cyber-202608', name: 'GPT-5.6-Cyber', version: '5.6-cyber',
+    provider: 'openai', releaseDate: '2026-08-10', notability: 3, releaseType: 'preview',
+    modalities: ['text', 'reasoning'], contextWindow: 1050000,
+    pricing: { input: 12.5, output: 75, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Offensive cybersecurity task completion', score: '95%' }],
+    blurb: 'A cybersecurity-specialized model built on GPT-5.6 Sol, gated behind the "Daybreak Red" tier of OpenAI\'s Daybreak program for vetted security researchers/enterprises, completing 95% of offensive security tasks vs. ~1.5-2% for safeguarded GPT-5.6 Sol.',
+    sourceUrls: ['https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks'], relatedModelIds: ['openai-gpt-56-sol-202607'],
+  },
 
   // ── Anthropic ───────────────────────────────────────
   {
@@ -447,6 +456,15 @@ export const models = [
     blurb: 'First model to drop the "4.x" numbering in favor of a clean generational name, becoming the new default model for Free and Pro users — near-Opus agentic performance at a much lower price point.',
     sourceUrls: ['https://www.anthropic.com/news/claude-sonnet-5'], relatedModelIds: ['anthropic-claude-sonnet-4-6-202602'],
   },
+  {
+    id: 'anthropic-opus5-202607', name: 'Claude Opus 5', version: '5',
+    provider: 'anthropic', releaseDate: '2026-07-24', notability: 5, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: 1000000,
+    pricing: { input: 5, output: 25, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'SWE-bench Verified', score: '96.0%' }, { name: 'ARC-AGI-3', score: '30.2%' }, { name: 'Frontier-Bench v0.1', score: '>2x Opus 4.8' }],
+    blurb: 'Anthropic\'s new flagship Opus model, launched with a 1M-token context window as the default (previously opt-in on Opus 4.8), a new "xhigh" reasoning mode, and frontier-class agentic coding/computer-use performance at unchanged Opus pricing.',
+    sourceUrls: ['https://www.marktechpost.com/2026/07/24/meet-the-new-claude-opus-5-frontier-class-agentic-coding-and-computer-use-at-unchanged-opus-pricing/'], relatedModelIds: ['anthropic-claude-opus-4-8-202605'],
+  },
 
   // ── Google ──────────────────────────────────────────
   {
@@ -592,6 +610,31 @@ export const models = [
     blurb: "First public release of the Gemini 3.5 family, launched GA on day one at Google I/O 2026 as Google's most intelligent model for agentic and coding tasks.",
     sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/'], relatedModelIds: ['google-gemini-3.1-pro-202602'],
   },
+  {
+    id: 'google-gemini36flash-202607', name: 'Gemini 3.6 Flash', version: '3.6',
+    provider: 'google', releaseDate: '2026-07-21', notability: 4, releaseType: 'mini',
+    modalities: ['text', 'vision', 'audio', 'multimodal'], contextWindow: 1048576,
+    pricing: { input: 1.5, output: 7.5, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'SWE-Bench Pro', score: '58.7%' }, { name: 'OSWorld-Verified', score: '83.0%' }, { name: 'Artificial Analysis Intelligence Index', score: '52' }],
+    blurb: "Google's updated Flash-tier workhorse, released alongside 3.5 Flash-Lite and 3.5 Flash Cyber while flagship Gemini 3.5 Pro remained stuck in limited partner preview. Improves coding, knowledge-work, and multimodal benchmarks over 3.5 Flash while cutting token usage up to 17%.",
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/'], relatedModelIds: ['google-gemini-3.5-flash-202605'],
+  },
+  {
+    id: 'google-gemini35flashlite-202607', name: 'Gemini 3.5 Flash-Lite', version: '3.5-lite',
+    provider: 'google', releaseDate: '2026-07-21', notability: 3, releaseType: 'mini',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: 1048576,
+    pricing: { input: 0.3, output: 2.5, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Artificial Analysis Intelligence Index', score: '37' }, { name: 'Agentic terminal coding (vs. 3.1 Flash-Lite)', score: '54% vs 31%' }],
+    blurb: "Google's most cost-effective Gemini model, released the same day as 3.6 Flash and 3.5 Flash Cyber — roughly 5x cheaper on input and 3x cheaper on output than 3.6 Flash.",
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/'], relatedModelIds: ['google-gemini-3.1-flash-lite-202603'],
+  },
+  {
+    id: 'google-gemini35flashcyber-202607', name: 'Gemini 3.5 Flash Cyber', version: '3.5-cyber',
+    provider: 'google', releaseDate: '2026-07-21', notability: 2, releaseType: 'preview',
+    modalities: ['text', 'reasoning'], contextWindow: null, pricing: null, benchmarks: [],
+    blurb: 'A cybersecurity-specialized Gemini Flash variant fine-tuned for finding and fixing software vulnerabilities, released exclusively to governments and trusted partners as a limited-access pilot.',
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/'], relatedModelIds: ['google-gemini36flash-202607'],
+  },
 
   // ── Meta ────────────────────────────────────────────
   {
@@ -676,6 +719,23 @@ export const models = [
     blurb: 'Previewed as Meta\'s largest "teacher" model (~2T total parameters) with claimed STEM benchmark leads, but never given a full public release — reported delays pushed its debut repeatedly, and it remains unreleased as of mid-2026 amid Meta\'s pivot to the closed-weight Muse model line.',
     sourceUrls: ['https://ai.meta.com/blog/llama-4-multimodal-intelligence/'], relatedModelIds: ['meta-llama-4-maverick-202504'],
   },
+  {
+    id: 'meta-musespark12-202608', name: 'Muse Spark 1.2', version: '1.2',
+    provider: 'meta', releaseDate: '2026-08-05', notability: 3, releaseType: 'flagship',
+    modalities: ['text', 'reasoning'], contextWindow: 1048576,
+    pricing: { input: 1.25, output: 4.25, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Terminal-Bench 2.1', score: '82.9%' }, { name: 'DeepSWE 1.1', score: '59.3%' }],
+    blurb: "Meta Superintelligence Labs' closed-weight, coding-focused update to Muse Spark, co-trained with the new Muse Code terminal agent. Second-best score on Meta's own comparison table, behind only Claude Opus 5.",
+    sourceUrls: ['https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2'], relatedModelIds: [],
+  },
+  {
+    id: 'meta-museglimmer-202608', name: 'Muse Glimmer', version: '30B',
+    provider: 'meta', releaseDate: '2026-08-10', notability: 4, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: 128000, pricing: null,
+    benchmarks: [{ name: 'MCP Atlas', score: '75.5' }, { name: 'SWE-Bench Pro', score: '51.2' }, { name: 'AIME 2026', score: '94.7' }],
+    blurb: "A 29.6B-parameter dense multimodal agentic model distilled from Meta's larger Muse system and released under Apache 2.0 — Meta's first major open-weight return since shelving Llama 4 Behemoth. Targets local/consumer-hardware deployment.",
+    sourceUrls: ['https://venturebeat.com/technology/meta-returns-to-open-source-with-muse-glimmer-an-apache-2-0-licensed-30b-parameter-ai-model-optimized-for-agents-available-now'], relatedModelIds: ['meta-llama-4-behemoth-202504'],
+  },
 
   // ── xAI ─────────────────────────────────────────────
   {
@@ -751,6 +811,15 @@ export const models = [
     benchmarks: [{ name: 'Artificial Analysis Intelligence Index', score: '54 (#4 overall)' }],
     blurb: 'xAI\'s first model built specifically for coding and agentic work, trained in partnership with Cursor; positioned as "Opus-class" but faster and more token-efficient.',
     sourceUrls: ['https://www.marktechpost.com/2026/07/08/spacexai-releases-grok-4-5/'], relatedModelIds: ['xai-grok4.3-202604'],
+  },
+  {
+    id: 'xai-grok4-6-202608', name: 'Grok 4.6', version: '4.6',
+    provider: 'xai', releaseDate: '2026-08-12', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 500000,
+    pricing: { input: 2, output: 6, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Artificial Analysis Intelligence Index', score: '61' }, { name: 'GDPval-AA v2', score: '1753 Elo' }, { name: 'DeepSWE v1.1', score: '65.9%' }],
+    blurb: "Flagship successor to Grok 4.5, tuned for long-running agentic workflows, software engineering, and multi-step technical research; released by SpaceXAI (formerly xAI, rebranded after SpaceX's acquisition).",
+    sourceUrls: ['https://www.marktechpost.com/2026/08/12/spacexai-releases-grok-4-6/'], relatedModelIds: ['xai-grok4.5-202607'],
   },
 
   // ── Amazon ──────────────────────────────────────────
@@ -1296,6 +1365,24 @@ export const models = [
     blurb: "DeepSeek's next-generation preview in two tiers: V4-Pro (1.6T total / 49B active) and V4-Flash (284B total / 13B active), both MIT-licensed MoE models with 1M-token context.",
     sourceUrls: ['https://www.morphllm.com/deepseek-v4'], relatedModelIds: ['deepseek-v3.2-202512'],
   },
+  {
+    id: 'deepseek-v4-flash-202607', name: 'DeepSeek-V4-Flash-0731', version: '0731',
+    provider: 'deepseek', releaseDate: '2026-07-31', notability: 3, releaseType: 'open-weight',
+    modalities: ['text', 'reasoning'], contextWindow: 1310720,
+    pricing: { input: 0.14, output: 0.28, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Terminal-Bench 2.1', score: '82.7' }, { name: 'DeepSWE', score: '54.4' }, { name: 'CyberGym', score: '76.7' }],
+    blurb: "MIT-licensed open-weight refresh of DeepSeek's smaller V4 model (284B total / 13B active params), shipped ahead of V4-Pro's GA with large jumps on agentic coding benchmarks versus the April preview.",
+    sourceUrls: ['https://huggingface.co/blog/ResterChed/deepseek-v4-flash-official-release'], relatedModelIds: ['deepseek-v4preview-202604', 'deepseek-v4-pro-202608'],
+  },
+  {
+    id: 'deepseek-v4-pro-202608', name: 'DeepSeek-V4-Pro', version: '0813 (GA)',
+    provider: 'deepseek', releaseDate: '2026-08-13', notability: 5, releaseType: 'flagship',
+    modalities: ['text', 'reasoning'], contextWindow: 1048576,
+    pricing: { input: 0.435, output: 0.87, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'DeepSWE', score: '62.7 (up from 12.8 in preview)' }, { name: 'CyberGym', score: '83.3 (up from 52.7 in preview)' }, { name: 'Terminal-Bench 2.1', score: '87.9 (up from 72.1 in preview)' }],
+    blurb: "GA release of DeepSeek's 1.6T-parameter (49B active) flagship, promoted out of the April 2026 preview with DSpark speculative decoding, reasoning-effort levels, a native OpenAI Responses API, and large jumps on agentic coding benchmarks.",
+    sourceUrls: ['https://api-docs.deepseek.com/news/news260813/'], relatedModelIds: ['deepseek-v4preview-202604', 'deepseek-v4-flash-202607'],
+  },
 
   // ── Alibaba (Qwen) ──────────────────────────────────
   {
@@ -1380,6 +1467,23 @@ export const models = [
     blurb: "Frontier proprietary flagship succeeding Qwen3-Max, released as part of Alibaba's accelerated 2026 Qwen3.x cadence.",
     sourceUrls: ['https://www.yottalabs.ai/post/qwen-3-7-max-release-date-features-open-source-status-and-how-to-access-2026'], relatedModelIds: ['alibaba-qwen3.6-202604'],
   },
+  {
+    id: 'alibaba-qwen3.8-max-202608', name: 'Qwen3.8-Max', version: '3.8-Max',
+    provider: 'alibaba', releaseDate: '2026-08-03', notability: 5, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'multimodal', 'reasoning'], contextWindow: 1000000,
+    pricing: { input: 2, output: 6, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'OSWorld-Verified', score: '86.1' }, { name: 'PaperBench', score: '93.0' }],
+    blurb: '2.4T-parameter (95B active) MoE flagship with native text/image/video input and a 1M-token context window; Alibaba claims it leads GPT-5.6 Sol Max, Claude Fable 5, and Gemini 3.1 Pro on OSWorld-Verified.',
+    sourceUrls: ['https://www.datacamp.com/blog/qwen3-8-max'], relatedModelIds: ['alibaba-qwen3.7max-202605', 'alibaba-qwen3.8-27b-202608'],
+  },
+  {
+    id: 'alibaba-qwen3.8-27b-202608', name: 'Qwen3.8-27B', version: '27B',
+    provider: 'alibaba', releaseDate: '2026-08-14', notability: 4, releaseType: 'open-weight',
+    modalities: ['text', 'multimodal'], contextWindow: 262144, pricing: null,
+    benchmarks: [{ name: 'SWE-bench Pro', score: '61.7' }],
+    blurb: "Apache 2.0 open-weight dense 27B model, Alibaba's first Max-class-derived open release; runs locally on ~17GB RAM, native 262K context (extensible to 1M via YaRN), and claims to beat Claude Opus 4.6 on 15 of 19 overlapping benchmarks.",
+    sourceUrls: ['https://simonwillison.net/2026/Aug/16/qwen-38-27b/'], relatedModelIds: ['alibaba-qwen3.8-max-202608'],
+  },
 
   // ── Zhipu AI (GLM) ──────────────────────────────────
   {
@@ -1449,6 +1553,14 @@ export const models = [
     blurb: "Coding-first model built for agentic, repository-scale software engineering, notable for a 1-million-token context window; bundled into Zhipu's Coding Plan subscriptions.",
     sourceUrls: ['https://techsy.io/en/blog/glm-5-2'], relatedModelIds: ['zhipu-glm5.1-202604'],
   },
+  {
+    id: 'zhipu-glm-5.3-202608', name: 'GLM-5.3', version: '5.3',
+    provider: 'zhipu', releaseDate: '2026-08-14', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'reasoning'], contextWindow: 1000000, pricing: null,
+    benchmarks: [{ name: 'CyberGym', score: '84.5%' }, { name: 'DeepSWE 1.1', score: '66.9%' }, { name: 'HLE', score: '62.5%' }],
+    blurb: "743B-parameter (40B active) MoE coding/security-focused model built on GLM-5.2's base via extended post-training; Zhipu calls it the strongest open-weights coding model available, with a 1M-token context variant.",
+    sourceUrls: ['https://the-decoder.com/zhipu-ai-releases-glm-5-3-claims-its-the-strongest-open-weights-coding-model/'], relatedModelIds: ['zhipu-glm5.2-202606'],
+  },
 
   // ── Moonshot AI (Kimi) ──────────────────────────────
   {
@@ -1489,6 +1601,15 @@ export const models = [
     benchmarks: [{ name: 'SWE-Bench Verified', score: '76.8%' }],
     blurb: 'Native multimodal MoE (1T total / 32B active) introducing "Agent Swarm," coordinating up to 100 specialized sub-agents simultaneously.',
     sourceUrls: ['https://www.nxcode.io/resources/news/kimi-k2-5-complete-review-2026'], relatedModelIds: ['moonshot-kimik2thinking-202511'],
+  },
+  {
+    id: 'moonshot-kimi-k3-202607', name: 'Kimi K3', version: 'K3',
+    provider: 'moonshot', releaseDate: '2026-07-16', notability: 5, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: 1000000,
+    pricing: { input: 2.6, output: 13, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'SWE-bench Verified', score: '76.8%' }, { name: 'GPQA Diamond', score: '93.5%' }, { name: 'Coding Index', score: '76.2%' }],
+    blurb: 'Moonshot\'s 2.8T-parameter open-weight flagship, billed as the first "open 3T-class" model, with a 1M-token context window (4x K2.5) and native multimodal input, positioned as competitive with Claude Fable 5 on several benchmarks.',
+    sourceUrls: ['https://fortune.com/2026/07/16/moonshots-kimi-k3-pushes-chinese-ai-into-fable-level-territory/'], relatedModelIds: ['moonshot-kimik2.5-202601'],
   },
 
   // ── 01.AI (Yi) ──────────────────────────────────────
@@ -1613,6 +1734,15 @@ export const models = [
     blurb: "Released about a month after MiniMax's Hong Kong IPO; positioned within a percentage point of Claude Opus 4.6 and ahead of GPT-5.2 on several agentic benchmarks.",
     sourceUrls: ['https://medium.com/@mlabonne/minimax-m2-5-the-1-hour-frontier-model-92168de195b8'], relatedModelIds: ['minimax-m2.1-202512'],
   },
+  {
+    id: 'minimax-m3-202606', name: 'MiniMax M3', version: 'M3',
+    provider: 'minimax', releaseDate: '2026-06-01', notability: 4, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'multimodal', 'reasoning'], contextWindow: 1048576,
+    pricing: { input: 0.6, output: 2.4, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'SWE-bench Pro', score: '59.0' }, { name: 'SWE-bench Verified', score: '80.5%' }],
+    blurb: 'Open-weight model built on MiniMax Sparse Attention (MSA), combining frontier-level coding, a 1M-token context window, and native multimodal input (image/video, plus desktop computer-use) — MiniMax claims this combination is an industry first.',
+    sourceUrls: ['https://www.marktechpost.com/2026/06/01/minimax-releases-minimax-m3-with-msa-architecture-supporting-1m-token-context-native-multimodality-and-agentic-coding/'], relatedModelIds: ['minimax-m2.5-202602'],
+  },
 
   // ── ByteDance (Doubao) ──────────────────────────────
   {
@@ -1654,5 +1784,14 @@ export const models = [
     benchmarks: [{ name: 'AIME 2025', score: '98.3%' }, { name: 'Codeforces rating', score: '3020' }, { name: 'VideoMME', score: '89.5%' }],
     blurb: "ByteDance's new foundation model family powering the Doubao app (155M weekly active users at launch), directly competitive with GPT-5.2, Claude Opus 4.5, and Gemini 3 Pro at a fraction of the price.",
     sourceUrls: ['https://www.caixinglobal.com/2026-02-15/bytedance-unveils-doubao-20-ai-model-to-tackle-complex-tasks-102414865.html'], relatedModelIds: ['bytedance-doubaoseed1.6-202510'],
+  },
+  {
+    id: 'bytedance-doubao-seed-2.1-202606', name: 'Doubao Seed 2.1', version: '2.1 (Pro & Turbo)',
+    provider: 'bytedance', releaseDate: '2026-06-23', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'multimodal', 'reasoning'], contextWindow: 262144,
+    pricing: { input: 0.884, output: 4.42, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Code Arena (frontend leaderboard)', score: '1539 (Pro preview, level with Claude Opus 4.6)' }],
+    blurb: 'ByteDance\'s next-gen Doubao family for coding and agent workloads, shipped as two SKUs: Seed 2.1 Pro (flagship "deep thinking") and Seed 2.1 Turbo (faster/cheaper, priced at half of Pro). ByteDance claims Pro beats Claude Opus 4.6 on several coding/agent/multimodal benchmarks at ~80% lower total cost of ownership.',
+    sourceUrls: ['https://datanorth.ai/news/bytedance-releases-seed-2-1-pro-and-seed-2-1-turbo'], relatedModelIds: ['bytedance-doubaoseed2.0-202602'],
   },
 ];
