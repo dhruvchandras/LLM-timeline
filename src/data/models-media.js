@@ -1256,4 +1256,22 @@ export const mediaModels = [
     blurb: 'Omni-modal generation model unifying text/image/video/audio understanding in one transformer, producing up to 2K/15s video with native synchronized stereo audio in a single generation pass.',
     sourceUrls: ['https://www.minimax.io/blog/minimax-h3'], relatedModelIds: ['minimax-hailuo23-202510'],
   },
+
+  // ══════════════════════════════════ Tencent (Hunyuan) ══════════════════════════════════
+  {
+    id: 'tencent-hunyuanocr-202511', name: 'HunyuanOCR', version: '1.0',
+    provider: 'tencent', releaseDate: '2025-11-25', notability: 3, releaseType: 'open-weight', category: 'document',
+    modalities: ['text', 'vision'], contextWindow: null, pricing: null, pricingNote: 'Open-sourced',
+    benchmarks: [],
+    blurb: "Tencent Hunyuan's open-source document OCR and structured-extraction model.",
+    sourceUrls: ['https://baike.baidu.com/en/item/Tencent%20HY/1450766'], relatedModelIds: [],
+  },
+  {
+    id: 'tencent-hunyuanimage3-202601', name: 'Hunyuan Image 3.0', version: '3.0',
+    provider: 'tencent', releaseDate: '2026-01-26', notability: 3, releaseType: 'flagship', category: 'image',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: null, pricing: null, pricingNote: 'Open-sourced two days after launch (Jan 28, 2026)',
+    benchmarks: [],
+    blurb: "Tencent Hunyuan's image-generation and image-to-image model, open-sourced shortly after its initial launch.",
+    sourceUrls: ['https://presenc.ai/research/tencent-hunyuan-model-lineage-2026'], relatedModelIds: [],
+  },
 ];

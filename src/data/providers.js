@@ -28,6 +28,9 @@ export const PROVIDER_META = {
   baidu:      { label: 'Baidu (Ernie)', shortLabel: 'Baidu',   color: '#84cc16', group: 'chinese' },
   minimax:    { label: 'MiniMax',    shortLabel: 'MiniMax',    color: '#ec4899', group: 'chinese' },
   bytedance:  { label: 'ByteDance (Doubao)', shortLabel: 'ByteDance', color: '#f97316', group: 'chinese' },
+  meituan:    { label: 'Meituan (LongCat)', shortLabel: 'Meituan', color: '#14b8a6', group: 'chinese' },
+  tencent:    { label: 'Tencent (Hunyuan)', shortLabel: 'Tencent', color: '#2563eb', group: 'chinese' },
+  xiaomi:     { label: 'Xiaomi (MiMo)', shortLabel: 'Xiaomi', color: '#fb7185', group: 'chinese' },
 
   // Other US Labs
   xai:        { label: 'xAI',        shortLabel: 'xAI',        color: '#22c55e', group: 'other-us' },
