@@ -672,6 +672,31 @@ const chatModels = [
     blurb: 'A cybersecurity-specialized Gemini Flash variant fine-tuned for finding and fixing software vulnerabilities, released exclusively to governments and trusted partners as a limited-access pilot.',
     sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/'], relatedModelIds: ['google-gemini36flash-202607'],
   },
+  {
+    id: 'google-gemini37flash-202608', name: 'Gemini 3.7 Flash', version: '3.7',
+    provider: 'google', releaseDate: '2026-08-13', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'audio', 'reasoning', 'multimodal'], contextWindow: 1048576,
+    pricing: { input: 0.75, output: 3.75, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'DeepSWE v1.1', score: '65.3% (vs 49.0% for 3.6 Flash)' }],
+    blurb: "Google's most capable workhorse model for coding and agents, keeping the same 1M-token context window while jumping significantly on real software-engineering benchmarks over Gemini 3.6 Flash.",
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/'], relatedModelIds: ['google-gemini36flash-202607', 'google-gemini38flash-202609'],
+  },
+  {
+    id: 'google-gemini38flash-202609', name: 'Gemini 3.8 Flash', version: '3.8',
+    provider: 'google', releaseDate: '2026-09-02', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'audio', 'reasoning', 'multimodal'], contextWindow: 1048576,
+    pricing: { input: 0.75, output: 3.75, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Terminal-Bench 2.1', score: '90.8% (up from 81.6% for 3.7 Flash)' }, { name: 'DeepSWE v1.1', score: 'outperforms most larger frontier models' }],
+    blurb: 'Third Flash release in six weeks, built on the 3.7 Flash base rather than a new model but tuned to "work harder" via more thinking tokens — beats 3.7 Flash on every published benchmark and Claude Opus 5 on several. Introductory pricing holds through Dec 31, 2026, then doubles.',
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/'], relatedModelIds: ['google-gemini37flash-202608'],
+  },
+  {
+    id: 'google-gemini38flashcyber-202609', name: 'Gemini 3.8 Flash Cyber', version: '3.8-cyber',
+    provider: 'google', releaseDate: '2026-09-02', notability: 2, releaseType: 'preview',
+    modalities: ['text', 'reasoning'], contextWindow: null, pricing: null, benchmarks: [],
+    blurb: 'Cybersecurity-specialized variant of Gemini 3.8 Flash tuned for vulnerability detection and mitigation, released via Google Fairwind, a limited-access program for governments and trusted partners.',
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/'], relatedModelIds: ['google-gemini38flash-202609', 'google-gemini35flashcyber-202607'],
+  },
 
   // ── Meta ────────────────────────────────────────────
   {
