@@ -76,4 +76,4 @@ export function getRangeEnd() {
   return new Date();
 }
 
-export const DATA_AS_OF = '2026-08-20';
+export const DATA_AS_OF = '2026-09-22';

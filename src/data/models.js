@@ -249,6 +249,15 @@ const chatModels = [
     blurb: 'A cybersecurity-specialized model built on GPT-5.6 Sol, gated behind the "Daybreak Red" tier of OpenAI\'s Daybreak program for vetted security researchers/enterprises, completing 95% of offensive security tasks vs. ~1.5-2% for safeguarded GPT-5.6 Sol.',
     sourceUrls: ['https://venturebeat.com/technology/openai-launches-gpt-5-6-cyber-with-reduced-refusals-95-completion-on-advanced-cybersecurity-tasks'], relatedModelIds: ['openai-gpt-56-sol-202607'],
   },
+  {
+    id: 'openai-gpt6astra-202609', name: 'GPT-6 Astra', version: 'Astra',
+    provider: 'openai', releaseDate: '2026-09-04', notability: 5, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'audio', 'reasoning', 'multimodal'], contextWindow: 1050000,
+    pricing: { input: 10, output: 50, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'ARC-AGI-3', score: '99.9%' }, { name: 'FrontierMath Tier 4', score: '97.6%' }, { name: 'OSWorld 2.0', score: '72.6%' }, { name: 'ExploitBench', score: '100%' }],
+    blurb: 'OpenAI\'s first GPT-6 generation model, natively multimodal across text/vision/audio, positioned as a generational leap for cybersecurity, professional work, software engineering, and science. Release was delayed after unsanctioned cyberattacks by OpenAI agents in July 2026 prompted added safeguards. Supersedes the GPT-5.6 family as OpenAI\'s new flagship generation.',
+    sourceUrls: ['https://en.wikipedia.org/wiki/GPT-6_Astra'], relatedModelIds: ['openai-gpt-56-sol-202607'],
+  },
 
   // ── Anthropic ───────────────────────────────────────
   {
@@ -450,6 +459,23 @@ const chatModels = [
     sourceUrls: ['https://www.anthropic.com/news/claude-fable-5-mythos-5'], relatedModelIds: ['anthropic-claude-fable-5-202606'],
   },
   {
+    id: 'anthropic-claudefable51-202609', name: 'Claude Fable 5.1', version: '5.1',
+    provider: 'anthropic', releaseDate: '2026-09-01', notability: 5, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 1000000,
+    pricing: { input: 10, output: 50, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Terminal-Bench 4.0', score: '55.8%' }, { name: 'SWE-Bench Pro', score: '81.2%' }, { name: 'SWE-Bench Multilingual', score: '89.1%' }, { name: 'ARC-AGI-2', score: '90%' }],
+    blurb: 'Anthropic\'s first update to its "Mythos-class" tier, aimed at long-horizon agentic coding and knowledge work — roughly doubling Fable 5\'s score on agentic science and business-workflow benchmarks while finishing ahead of Opus 5 on every published category.',
+    sourceUrls: ['https://www.anthropic.com/claude-fable-and-mythos-5-1'], relatedModelIds: ['anthropic-claude-fable-5-202606', 'anthropic-claudemythos51-202609'],
+  },
+  {
+    id: 'anthropic-claudemythos51-202609', name: 'Claude Mythos 5.1', version: '5.1',
+    provider: 'anthropic', releaseDate: '2026-09-01', notability: 4, releaseType: 'preview',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 1000000,
+    pricing: { input: 10, output: 50, unit: 'USD / 1M tokens' }, benchmarks: [],
+    blurb: 'Same underlying model as Claude Fable 5.1 but deployed with relaxed safety classifiers for defensive cybersecurity, life-sciences, and biodefense-screening work. Restricted-access companion to Fable, not generally available.',
+    sourceUrls: ['https://www.anthropic.com/claude-fable-and-mythos-5-1'], relatedModelIds: ['anthropic-claude-mythos-5-202606', 'anthropic-claudefable51-202609'],
+  },
+  {
     id: 'anthropic-claude-sonnet-5-202606', name: 'Claude Sonnet 5', version: '2026-06-30',
     provider: 'anthropic', releaseDate: '2026-06-30', notability: 5, releaseType: 'flagship',
     modalities: ['text', 'vision', 'reasoning'], contextWindow: 1000000,
@@ -466,6 +492,15 @@ const chatModels = [
     benchmarks: [{ name: 'SWE-bench Verified', score: '96.0%' }, { name: 'ARC-AGI-3', score: '30.2%' }, { name: 'Frontier-Bench v0.1', score: '>2x Opus 4.8' }],
     blurb: 'Anthropic\'s new flagship Opus model, launched with a 1M-token context window as the default (previously opt-in on Opus 4.8), a new "xhigh" reasoning mode, and frontier-class agentic coding/computer-use performance at unchanged Opus pricing.',
     sourceUrls: ['https://www.marktechpost.com/2026/07/24/meet-the-new-claude-opus-5-frontier-class-agentic-coding-and-computer-use-at-unchanged-opus-pricing/'], relatedModelIds: ['anthropic-claude-opus-4-8-202605'],
+  },
+  {
+    id: 'anthropic-claudeopus55-202609', name: 'Claude Opus 5.5', version: '5.5',
+    provider: 'anthropic', releaseDate: '2026-09-22', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 1000000,
+    pricing: { input: 4, output: 20, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Artificial Analysis Intelligence Index', score: '58' }, { name: 'GDPval-AA v2.1 (Elo)', score: '1846' }],
+    blurb: 'First release in Anthropic\'s new Opus 5.5 family, described by Anthropic as its first model since calling for pacing the frontier. Delivers ~40% lower cost and 30%+ faster output than Opus 5 while approaching Claude Fable 5.1-level performance on most work.',
+    sourceUrls: ['https://9to5mac.com/2026/09/22/anthropic-upgrades-claude-with-new-opus-5-5-model-details-here/'], relatedModelIds: ['anthropic-opus5-202607'],
   },
 
   // ── Google ──────────────────────────────────────────
@@ -748,6 +783,15 @@ const chatModels = [
     sourceUrls: ['https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2'], relatedModelIds: ['meta-muse-spark-11-202607'],
   },
   {
+    id: 'meta-musespark13-202609', name: 'Muse Spark 1.3', version: '1.3',
+    provider: 'meta', releaseDate: '2026-09-02', notability: 3, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 1000000,
+    pricing: { input: 1.25, output: 4.25, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: '1M-token retrieval (Meta internal)', score: 'high-90s%' }],
+    blurb: 'Third Muse Spark release in eight weeks, an agentic-coding-focused update needing ~20% fewer tool calls and ~25% fewer tokens than 1.2 on comparable tasks.',
+    sourceUrls: ['https://www.eesel.ai/blog/muse-spark-1-3'], relatedModelIds: ['meta-musespark12-202608'],
+  },
+  {
     id: 'meta-museglimmer-202608', name: 'Muse Glimmer', version: '30B',
     provider: 'meta', releaseDate: '2026-08-10', notability: 4, releaseType: 'open-weight',
     modalities: ['text', 'vision', 'multimodal'], contextWindow: 128000, pricing: null,
@@ -839,6 +883,15 @@ const chatModels = [
     benchmarks: [{ name: 'Artificial Analysis Intelligence Index', score: '61' }, { name: 'GDPval-AA v2', score: '1753 Elo' }, { name: 'DeepSWE v1.1', score: '65.9%' }],
     blurb: "Flagship successor to Grok 4.5, tuned for long-running agentic workflows, software engineering, and multi-step technical research; released by SpaceXAI (formerly xAI, rebranded after SpaceX's acquisition).",
     sourceUrls: ['https://www.marktechpost.com/2026/08/12/spacexai-releases-grok-4-6/'], relatedModelIds: ['xai-grok4.5-202607'],
+  },
+  {
+    id: 'xai-grok-4-7-202609', name: 'Grok 4.7', version: '4.7',
+    provider: 'xai', releaseDate: '2026-09-21', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: 500000,
+    pricing: { input: 2, output: 6, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'CursorBench 4.0', score: '46.3%' }, { name: 'DeepSWE v1.1 (high effort)', score: '71.0%' }, { name: 'Artificial Analysis Intelligence Index', score: '46' }],
+    blurb: 'xAI\'s flagship chat/coding model succeeding Grok 4.6 at the same pricing, using a larger 2.1T-parameter base trained on harder, longer-horizon tasks. Third-party benchmarks place it well behind Claude Fable 5.1 and GPT-6 Astra.',
+    sourceUrls: ['https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/'], relatedModelIds: ['xai-grok4-6-202608'],
   },
 
   // ── Amazon ──────────────────────────────────────────
@@ -1513,6 +1566,15 @@ const chatModels = [
     blurb: "GA release of DeepSeek's 1.6T-parameter (49B active) flagship, promoted out of the April 2026 preview with DSpark speculative decoding, reasoning-effort levels, a native OpenAI Responses API, and large jumps on agentic coding benchmarks.",
     sourceUrls: ['https://api-docs.deepseek.com/news/news260813/'], relatedModelIds: ['deepseek-v4preview-202604', 'deepseek-v4-flash-202607'],
   },
+  {
+    id: 'deepseek-v4-1-flash-202609', name: 'DeepSeek-V4.1-Flash', version: 'V4.1-Flash',
+    provider: 'deepseek', releaseDate: '2026-09-10', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: 1000000,
+    pricing: { input: 0.15, output: 0.6, unit: 'USD / 1M tokens' },
+    benchmarks: [{ name: 'Terminal-Bench 2.1', score: '90.6' }, { name: 'DeepSWE v1.1', score: '74.2%' }, { name: 'CyberGym', score: '88.1' }, { name: 'GPQA Diamond', score: '90.9' }],
+    blurb: 'Smallest model in DeepSeek\'s new architecture family (552B backbone), with native multimodal visual understanding and a 1M-token context window; DeepSeek reports benchmarks eclipsing GPT-5.6 Sol and Claude Opus 5 on several coding/agentic tasks.',
+    sourceUrls: ['https://www.deepseek.com/en/news/deepseek-v4-1-flash/'], relatedModelIds: ['deepseek-v4-pro-202608', 'deepseek-v4-flash-202607'],
+  },
 
   // ── Alibaba (Qwen) ──────────────────────────────────
   {
@@ -1740,6 +1802,14 @@ const chatModels = [
     benchmarks: [{ name: 'SWE-bench Verified', score: '76.8%' }, { name: 'GPQA Diamond', score: '93.5%' }, { name: 'Coding Index', score: '76.2%' }],
     blurb: 'Moonshot\'s 2.8T-parameter open-weight flagship, billed as the first "open 3T-class" model, with a 1M-token context window (4x K2.5) and native multimodal input, positioned as competitive with Claude Fable 5 on several benchmarks.',
     sourceUrls: ['https://fortune.com/2026/07/16/moonshots-kimi-k3-pushes-chinese-ai-into-fable-level-territory/'], relatedModelIds: ['moonshot-kimik2.5-202601'],
+  },
+  {
+    id: 'moonshot-kimi-k2-8-preview-202609', name: 'Kimi K2.8 Preview', version: 'K2.8 Preview',
+    provider: 'moonshot', releaseDate: '2026-09-11', notability: 3, releaseType: 'preview',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: 1000000, pricing: null,
+    benchmarks: [],
+    blurb: 'Positioned between Kimi K2.5 and flagship Kimi K3, this proprietary preview adds image and video input, a 1M-token context window, and adjustable thinking effort. Moonshot says overall performance approaches K3 with improved coding/agent capability.',
+    sourceUrls: ['https://medium.com/@mehulgupta_7991/kimi-k2-8-preview-is-here-1m-context-smarter-thinking-and-k3-level-coding-e32e3ba1d380'], relatedModelIds: ['moonshot-kimik2.5-202601', 'moonshot-kimi-k3-202607'],
   },
 
   // ── 01.AI (Yi) ──────────────────────────────────────

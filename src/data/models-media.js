@@ -158,6 +158,15 @@ export const mediaModels = [
     sourceUrls: ['https://openai.com/index/introducing-chatgpt-images-2-0/'], relatedModelIds: ['openai-gpt-image-1-5-202512'],
   },
   {
+    id: 'openai-gptimage25-202609', name: 'GPT Image 2.5', version: '2.5 (Sunburst & Flare variants)',
+    provider: 'openai', releaseDate: '2026-09-08', notability: 3, releaseType: 'flagship', category: 'image',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: null, pricing: null,
+    pricingNote: '$8/1M image-input, $30/1M image-output, $5/1M text-input tokens; ~$0.004/image, ~20% cheaper than GPT Image 2 on text-to-image, ~60% cheaper on edits',
+    benchmarks: [],
+    blurb: 'Successor to GPT Image 2, released as two API variants — Flare (fast, high-volume, up to 50% lower latency) and Sunburst. Added a Sketch feature in ChatGPT that turns drawings into AI images.',
+    sourceUrls: ['https://www.eesel.ai/blog/chatgpt-images-2-5-pricing'], relatedModelIds: ['openai-gpt-image-2-202604'],
+  },
+  {
     id: 'openai-gpt-realtime-2-202605', name: 'gpt-realtime-2', version: 'gpt-realtime-2',
     provider: 'openai', releaseDate: '2026-05-07', notability: 4, releaseType: 'flagship', category: 'audio',
     modalities: ['audio', 'text', 'multimodal'], contextWindow: 128000, pricing: null,
@@ -321,6 +330,15 @@ export const mediaModels = [
     blurb: 'Third generation of the viral "Nano Banana" image line, built on Gemini 3.1 Flash, described by Google as its best image generation and editing model to date.',
     sourceUrls: ['https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/'], relatedModelIds: ['google-nanobanana-pro-202511'],
   },
+  {
+    id: 'google-geminiomni11flash-202608', name: 'Gemini Omni 1.1 Flash', version: '1.1 Flash (GA)',
+    provider: 'google', releaseDate: '2026-08-27', notability: 3, releaseType: 'flagship', category: 'video',
+    modalities: ['text', 'vision', 'audio', 'multimodal'], contextWindow: null, pricing: null,
+    pricingNote: 'Per output second: $0.03 at 360p, $0.10 at 720p, $0.15 at 1080p, $0.30 at 4K',
+    benchmarks: [],
+    blurb: "Google's conversational, editable AI video model reaching general availability, adding scene extension to 40 seconds, first-and-last-frame control, a cheap 360p draft mode, and 4K upscaling.",
+    sourceUrls: ['https://apidog.com/blog/gemini-omni-1-1-flash/'], relatedModelIds: [],
+  },
 
   // ══════════════════════════════════ Meta ══════════════════════════════════
   {
@@ -432,6 +450,15 @@ export const mediaModels = [
     benchmarks: [{ name: 'Arena text-to-image leaderboard', score: '#2, behind GPT-Image-2' }, { name: 'Arena image-editing leaderboard', score: '#2, behind GPT-Image-2' }],
     blurb: "xAI's next-generation image model shipped as the new Quality Mode on grok.com/imagine, adding region-level editing, segmentation-based selection, and multi-reference editing.",
     sourceUrls: ['https://www.unite.ai/xai-ships-grok-imagine-image-2-0-with-precise-editing-and-a-top-arena-ranking/'], relatedModelIds: ['xai-aurora-202412', 'xai-grokimaginevideo15-202606'],
+  },
+  {
+    id: 'xai-grok-voice-transcribe-2-202609', name: 'Grok Voice Transcribe 2.0', version: '2.0',
+    provider: 'xai', releaseDate: '2026-09-18', notability: 3, releaseType: 'flagship', category: 'audio',
+    modalities: ['audio'], contextWindow: null, pricing: null,
+    pricingNote: '$0.10 / hour of audio (batch pricing)',
+    benchmarks: [{ name: 'Artificial Analysis streaming transcription leaderboard', score: '#1 of 32 models' }],
+    blurb: "Speech-to-text model built on the Grok Voice audio foundation model, roughly twice as accurate as its predecessor. Adds multilingual transcription, word-level timestamps, speaker diarization, and multichannel support.",
+    sourceUrls: ['https://x.ai/news/grok-voice-transcribe-2'], relatedModelIds: [],
   },
 
   // ══════════════════════════════════ Amazon ══════════════════════════════════
@@ -687,6 +714,24 @@ export const mediaModels = [
     benchmarks: [{ name: 'TTS leaderboard', score: '#1 (Plus variant, claimed)' }],
     blurb: "Alibaba's latest-generation TTS model supporting 16 languages and 20+ Chinese dialect regions.",
     sourceUrls: ['https://www.remio.ai/post/qwen-releases-qwen-audio-3-0-tts-and-tops-the-tts-leaderboard-but-the-race-is-st'], relatedModelIds: ['alibaba-cosyvoice3-202512'],
+  },
+  {
+    id: 'alibaba-wan3-0-202608', name: 'Wan3.0', version: '3.0',
+    provider: 'alibaba', releaseDate: '2026-08-24', notability: 4, releaseType: 'flagship', category: 'video',
+    modalities: ['vision', 'audio', 'multimodal'], contextWindow: null, pricing: null,
+    pricingNote: '$0.05/sec at 480p, $0.10/sec at 720p, $0.20/sec at 1080p on Alibaba Cloud Model Studio',
+    benchmarks: [],
+    blurb: "Alibaba's new flagship video model generates native 30-second clips at up to 1080p from text, images, audio, video, or documents, accepting up to 20 mixed references and producing a matching audio track. Replaces Wan2.2-S2V.",
+    sourceUrls: ['https://www.alibabacloud.com/blog/603505'], relatedModelIds: ['alibaba-wan22s2v-202508'],
+  },
+  {
+    id: 'alibaba-qwen-image-2-1-202609', name: 'Qwen-Image-2.1', version: '2.1',
+    provider: 'alibaba', releaseDate: '2026-09-20', notability: 3, releaseType: 'open-weight', category: 'image',
+    modalities: ['vision', 'multimodal'], contextWindow: null, pricing: null,
+    pricingNote: 'Open-weight (7B), free to self-host under Qwen Research License; commercial deployment requires a separate license',
+    benchmarks: [{ name: 'Qwen internal image benchmark', score: '60.28 (top among open-weight models)' }],
+    blurb: 'Unifies text-to-image generation and image editing into a single 7B-parameter checkpoint (about a third the size of the prior 20B model), supporting multi-reference editing and native transparent RGBA output.',
+    sourceUrls: ['https://www.marktechpost.com/2026/09/21/alibaba-qwen-releases-qwen-image-2-1/'], relatedModelIds: ['alibaba-qwenimageedit-202508'],
   },
 
   // ══════════════════════════════════ Zhipu AI (GLM) ══════════════════════════════════
@@ -1031,6 +1076,15 @@ export const mediaModels = [
     benchmarks: [{ name: 'Open ASR Leaderboard rank', score: '#1 (vendor-reported)' }],
     blurb: "Cohere's first dedicated speech-to-text model — a compact 2B-parameter, 14-language ASR model open-sourced for edge/low-latency deployment.",
     sourceUrls: ['https://techcrunch.com/2026/03/26/cohere-launches-an-open-source-voice-model-specifically-for-transcription/'], relatedModelIds: [],
+  },
+  {
+    id: 'cohere-parse5-202608', name: 'Parse', version: 'parse-v5.0',
+    provider: 'cohere', releaseDate: '2026-08-27', notability: 3, releaseType: 'mini', category: 'document',
+    modalities: ['vision', 'multimodal'], contextWindow: 8192, pricing: null,
+    pricingNote: '$1.50 per 1,000 pages via API; Model Vault Medium $2,500/mo, XL $4,300/mo for dedicated capacity',
+    benchmarks: [{ name: 'ParseBench (avg: tables/content faithfulness/semantic formatting)', score: '79.2' }],
+    blurb: "A 2.3B-parameter vision-language document model that converts PDFs, slide decks and images into structured Markdown with HTML tables and bounding-box coordinates. Positioned as a lower-cost alternative to GPT Image-tier document pipelines and Mistral OCR 4.",
+    sourceUrls: ['https://cohere.com/blog/parse'], relatedModelIds: [],
   },
 
   // ══════════════════════════════════ Aleph Alpha ══════════════════════════════════
