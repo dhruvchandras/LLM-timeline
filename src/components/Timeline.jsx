@@ -124,6 +124,14 @@ export default function Timeline({
   const dayToX = useCallback((day) => 130 + day * pxPerDay, [pxPerDay]);
   const dateX  = useCallback((dateStr) => dayToX(dateToDay(dateStr, rangeStart)), [dayToX, rangeStart]);
 
+  // On first load, jump straight to the right edge so the newest releases
+  // are visible without the user having to scroll/pan manually.
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
+    }
+  }, []);
+
   useEffect(() => {
     if (selectedModel && scrollRef.current) {
       const x = dateX(selectedModel.releaseDate);
