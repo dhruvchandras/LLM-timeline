@@ -63,7 +63,7 @@ export const CATEGORY_META = {
   audio:     { label: 'Voice / Audio', icon: '🎙', description: 'Speech synthesis (TTS) or recognition (ASR)' },
   video:     { label: 'Video Gen',     icon: '🎬', description: 'Text-to-video or video editing' },
   document:  { label: 'Document / OCR', icon: '📄', description: 'Document parsing, OCR, structured extraction' },
-  embedding: { label: 'Embedding',     icon: '🔗', description: 'Text/multimodal embedding model' },
+  embedding: { label: 'Embedding / Rerank', icon: '🔗', description: 'Embedding or reranking model for search & RAG' },
 };
 export const DEFAULT_CATEGORY = 'chat';
 
@@ -79,4 +79,4 @@ export function getRangeEnd() {
   return new Date();
 }
 
-export const DATA_AS_OF = '2026-09-22';
+export const DATA_AS_OF = '2026-11-02';

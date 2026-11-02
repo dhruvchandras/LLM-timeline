@@ -12,8 +12,8 @@ function formatContextWindow(n) {
 }
 
 function formatPrice(model) {
-  if (model.pricingNote) return model.pricingNote;
   if (model.pricing) return `$${model.pricing.input.toFixed(2)} in / $${model.pricing.output.toFixed(2)} out per 1M tokens`;
+  if (model.pricingNote) return model.pricingNote;
   return 'Not publicly priced';
 }
 
@@ -90,6 +90,9 @@ export default function DetailPanel({ model, allModels, onClose, onNavigate }) {
               <span className="spec-value">{formatPrice(model)}</span>
             </div>
           </div>
+          {model.pricing && model.pricingNote && (
+            <div className="benchmark-caption">{model.pricingNote}</div>
+          )}
         </div>
 
         <div>
