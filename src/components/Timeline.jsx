@@ -322,7 +322,7 @@ export default function Timeline({
 function Tooltip({ model, x, y }) {
   const meta = PROVIDER_META[model.provider];
   const groupMeta = GROUP_META[meta.group];
-  const date = new Date(model.releaseDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+  const date = new Date(model.releaseDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
   const tipW = 260, tipH = 120;
   const left = x + 14 + tipW > window.innerWidth  ? x - tipW - 14 : x + 14;

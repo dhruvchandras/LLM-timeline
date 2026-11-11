@@ -1,7 +1,7 @@
 import { PROVIDER_META, GROUP_META, MODALITY_META, RELEASE_TYPE_META, CATEGORY_META, DEFAULT_CATEGORY } from '../data/providers.js';
 
 function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+  return new Date(dateStr).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 }
 
 function formatContextWindow(n) {
@@ -128,7 +128,7 @@ export default function DetailPanel({ model, allModels, onClose, onNavigate }) {
                     <div className="related-text">
                       <div className="related-title">{rel.name}</div>
                       <div className="related-date">
-                        {new Date(rel.releaseDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                        {new Date(rel.releaseDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}
                         {' · '}{relProvider?.shortLabel}
                       </div>
                     </div>

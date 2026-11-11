@@ -3,6 +3,7 @@ export const GROUPS = {
   CHINESE: 'chinese',
   OTHER_US: 'other-us',
   ROW: 'row',
+  DECISION: 'decision',
 };
 
 export const GROUP_META = {
@@ -10,6 +11,7 @@ export const GROUP_META = {
   chinese:    { label: 'Chinese Labs',         color: '#f43f5e', order: 1 },
   'other-us': { label: 'Other US Labs',        color: '#a78bfa', order: 2 },
   row:        { label: 'Rest-of-World Labs',   color: '#fbbf24', order: 3 },
+  decision:   { label: 'Independent decision / classifier models', color: '#60a5fa', order: 4 },
 };
 
 export const PROVIDER_META = {
@@ -45,6 +47,21 @@ export const PROVIDER_META = {
   ai21:       { label: 'AI21 Labs (Israel)',  shortLabel: 'AI21',    color: '#7c3aed', group: 'row' },
   alephalpha: { label: 'Aleph Alpha (Germany)', shortLabel: 'Aleph Alpha', color: '#64748b', group: 'row' },
   tii:        { label: 'TII / Falcon (UAE)',  shortLabel: 'Falcon',  color: '#059669', group: 'row' },
+
+  // Independent decision / classifier models
+  typesafe:   { label: 'TypeSafe AI (Jev)', shortLabel: 'TypeSafe', color: '#38bdf8', group: 'decision' },
+  kev:        { label: 'Kev (Jared Palmer)', shortLabel: 'Kev', color: '#34d399', group: 'decision' },
+  laya:       { label: 'Laya (Convai)', shortLabel: 'Laya', color: '#e879f9', group: 'decision' },
+  bespoke:    { label: 'Bespoke Labs (Nimble)', shortLabel: 'Bespoke', color: '#fb923c', group: 'decision' },
+  upstage:    { label: 'Upstage (Solar Decide)', shortLabel: 'Upstage', color: '#a3e635', group: 'decision' },
+  fastino:    { label: 'Fastino Labs (GLiNER2.5)', shortLabel: 'Fastino', color: '#22d3ee', group: 'decision' },
+  xyne:       { label: 'Xyne (XOR)', shortLabel: 'Xyne', color: '#f472b6', group: 'decision' },
+  liquid:     { label: 'Liquid AI (d1)', shortLabel: 'Liquid AI', color: '#818cf8', group: 'decision' },
+  h2o:        { label: 'H2O.ai (Lightning)', shortLabel: 'H2O.ai', color: '#facc15', group: 'decision' },
+  subquadratic:{ label: 'Subquadratic (SubQ Snap)', shortLabel: 'Subquadratic', color: '#2dd4bf', group: 'decision' },
+  baseten:    { label: 'Baseten (Base Labs)', shortLabel: 'Baseten', color: '#c084fc', group: 'decision' },
+  startlux:   { label: 'StartLux Labs', shortLabel: 'StartLux', color: '#f87171', group: 'decision' },
+  vllmsr:     { label: 'vLLM Semantic Router', shortLabel: 'vLLM-SR', color: '#94a3b8', group: 'decision' },
 };
 
 export const MODALITY_META = {
@@ -63,6 +80,7 @@ export const CATEGORY_META = {
   audio:     { label: 'Voice / Audio', icon: '🎙', description: 'Speech synthesis (TTS) or recognition (ASR)' },
   video:     { label: 'Video Gen',     icon: '🎬', description: 'Text-to-video or video editing' },
   document:  { label: 'Document / OCR', icon: '📄', description: 'Document parsing, OCR, structured extraction' },
+  decision:  { label: 'Decision / classifier', icon: '⚖', description: 'Non-generative model that returns a decision, label or probability instead of free text' },
   embedding: { label: 'Embedding / Rerank', icon: '🔗', description: 'Embedding or reranking model for search & RAG' },
 };
 export const DEFAULT_CATEGORY = 'chat';
@@ -79,4 +97,4 @@ export function getRangeEnd() {
   return new Date();
 }
 
-export const DATA_AS_OF = '2026-11-02';
+export const DATA_AS_OF = '2026-11-10';
