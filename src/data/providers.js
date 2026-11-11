@@ -33,6 +33,9 @@ export const PROVIDER_META = {
   meituan:    { label: 'Meituan (LongCat)', shortLabel: 'Meituan', color: '#14b8a6', group: 'chinese' },
   tencent:    { label: 'Tencent (Hunyuan)', shortLabel: 'Tencent', color: '#2563eb', group: 'chinese' },
   xiaomi:     { label: 'Xiaomi (MiMo)', shortLabel: 'Xiaomi', color: '#fb7185', group: 'chinese' },
+  kuaishou:   { label: 'Kuaishou (Kling)', shortLabel: 'Kuaishou', color: '#ef4444', group: 'chinese' },
+  stepfun:    { label: 'StepFun (Step)', shortLabel: 'StepFun', color: '#d946ef', group: 'chinese' },
+  ant:        { label: 'Ant Group (Ling)', shortLabel: 'Ant Group', color: '#3b82f6', group: 'chinese' },
 
   // Other US Labs
   xai:        { label: 'xAI',        shortLabel: 'xAI',        color: '#22c55e', group: 'other-us' },
@@ -40,6 +43,9 @@ export const PROVIDER_META = {
   microsoft:  { label: 'Microsoft',  shortLabel: 'Microsoft',  color: '#e11d48', group: 'other-us' },
   databricks: { label: 'Databricks', shortLabel: 'Databricks', color: '#0ea5e9', group: 'other-us' },
   reka:       { label: 'Reka AI',    shortLabel: 'Reka',       color: '#a3e635', group: 'other-us' },
+  nvidia:     { label: 'NVIDIA (Nemotron)', shortLabel: 'NVIDIA', color: '#76b900', group: 'other-us' },
+  cloudflare: { label: 'Cloudflare', shortLabel: 'Cloudflare', color: '#f6821f', group: 'other-us' },
+  perplexity: { label: 'Perplexity', shortLabel: 'Perplexity', color: '#20b8cd', group: 'other-us' },
 
   // Rest-of-World Labs
   mistral:    { label: 'Mistral AI (France)', shortLabel: 'Mistral', color: '#fa500f', group: 'row' },
@@ -47,6 +53,7 @@ export const PROVIDER_META = {
   ai21:       { label: 'AI21 Labs (Israel)',  shortLabel: 'AI21',    color: '#7c3aed', group: 'row' },
   alephalpha: { label: 'Aleph Alpha (Germany)', shortLabel: 'Aleph Alpha', color: '#64748b', group: 'row' },
   tii:        { label: 'TII / Falcon (UAE)',  shortLabel: 'Falcon',  color: '#059669', group: 'row' },
+  bfl:        { label: 'Black Forest Labs (Germany)', shortLabel: 'BFL', color: '#e5e7eb', group: 'row' },
 
   // Independent decision / classifier models
   typesafe:   { label: 'TypeSafe AI (Jev)', shortLabel: 'TypeSafe', color: '#38bdf8', group: 'decision' },
