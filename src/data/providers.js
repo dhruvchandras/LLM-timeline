@@ -46,6 +46,12 @@ export const PROVIDER_META = {
   nvidia:     { label: 'NVIDIA (Nemotron)', shortLabel: 'NVIDIA', color: '#76b900', group: 'other-us' },
   cloudflare: { label: 'Cloudflare', shortLabel: 'Cloudflare', color: '#f6821f', group: 'other-us' },
   perplexity: { label: 'Perplexity', shortLabel: 'Perplexity', color: '#20b8cd', group: 'other-us' },
+  ai2:        { label: 'Ai2 (OLMo)', shortLabel: 'Ai2', color: '#f472b6', group: 'other-us' },
+  ibm:        { label: 'IBM (Granite)', shortLabel: 'IBM', color: '#2563eb', group: 'other-us' },
+  elevenlabs: { label: 'ElevenLabs', shortLabel: 'ElevenLabs', color: '#a1a1aa', group: 'other-us' },
+  runway:     { label: 'Runway', shortLabel: 'Runway', color: '#84cc16', group: 'other-us' },
+  luma:       { label: 'Luma AI', shortLabel: 'Luma', color: '#fde047', group: 'other-us' },
+  midjourney: { label: 'Midjourney', shortLabel: 'Midjourney', color: '#fb7185', group: 'other-us' },
 
   // Rest-of-World Labs
   mistral:    { label: 'Mistral AI (France)', shortLabel: 'Mistral', color: '#fa500f', group: 'row' },
@@ -54,6 +60,7 @@ export const PROVIDER_META = {
   alephalpha: { label: 'Aleph Alpha (Germany)', shortLabel: 'Aleph Alpha', color: '#64748b', group: 'row' },
   tii:        { label: 'TII / Falcon (UAE)',  shortLabel: 'Falcon',  color: '#059669', group: 'row' },
   bfl:        { label: 'Black Forest Labs (Germany)', shortLabel: 'BFL', color: '#e5e7eb', group: 'row' },
+  stability:  { label: 'Stability AI (UK)', shortLabel: 'Stability', color: '#7c3aed', group: 'row' },
 
   // Independent decision / classifier models
   typesafe:   { label: 'TypeSafe AI (Jev)', shortLabel: 'TypeSafe', color: '#38bdf8', group: 'decision' },
@@ -99,7 +106,7 @@ export const RELEASE_TYPE_META = {
   preview:       { label: 'Preview',         description: 'Early or limited-access release' },
 };
 
-export const RANGE_START = new Date('2022-11-30');
+export const RANGE_START = new Date('2022-11-01');
 export function getRangeEnd() {
   return new Date();
 }
