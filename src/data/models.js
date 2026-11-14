@@ -1772,7 +1772,7 @@ const chatModels = [
   },
   {
     id: 'zhipu-glm-5.3-202608', name: 'GLM-5.3', version: '5.3',
-    provider: 'zhipu', releaseDate: '2026-08-14', notability: 4, releaseType: 'flagship',
+    provider: 'zhipu', releaseDate: '2026-08-18', notability: 4, releaseType: 'flagship',
     modalities: ['text', 'reasoning'], contextWindow: 1000000, pricing: null,
     benchmarks: [{ name: 'CyberGym', score: '84.5%' }, { name: 'DeepSWE 1.1', score: '66.9%' }, { name: 'HLE', score: '62.5%' }],
     blurb: "743B-parameter (40B active) MoE coding/security-focused model built on GLM-5.2's base via extended post-training; Zhipu calls it the strongest open-weights coding model available, with a 1M-token context variant.",
@@ -2119,7 +2119,7 @@ const chatModels = [
   },
   {
     id: 'xiaomi-mimov2flash-202512', name: 'MiMo-V2-Flash', version: 'V2-Flash',
-    provider: 'xiaomi', releaseDate: '2025-12-17', notability: 4, releaseType: 'open-weight',
+    provider: 'xiaomi', releaseDate: '2025-12-16', notability: 4, releaseType: 'open-weight',
     modalities: ['text', 'reasoning'], contextWindow: null, pricing: null,
     benchmarks: [],
     blurb: '309B-parameter MIT-licensed open-weight model, a major scale-up from MiMo-7B.',
@@ -2815,7 +2815,7 @@ const chatModels = [
   // microsoft
   {
     id: 'microsoft-mai-cyber-1-flash-202607', name: 'MAI-Cyber-1-Flash', version: '1',
-    provider: 'microsoft', releaseDate: '2026-07-27', notability: 3, releaseType: 'preview',
+    provider: 'microsoft', releaseDate: '2026-08-13', notability: 3, releaseType: 'preview',
     modalities: ['text', 'reasoning'], contextWindow: 256000,
     pricing: null,
     pricingNote: 'No list price; offered only inside Microsoft MDASH to verified customers. Microsoft claims MDASH runs at about 50% of the cost of its previous best setup.',
@@ -4748,6 +4748,114 @@ const chatModels = [
     benchmarks: [],
     blurb: '12.1B-parameter multilingual base and instruct models trained on 2 trillion tokens, released alongside an updated 1.6B variant; Stability AI membership/community licence.',
     sourceUrls: ['https://huggingface.co/stabilityai/stablelm-2-12b', 'https://venturebeat.com/ai/stability-ai-brings-12b-parameters-to-stable-lm-2-model-update'], relatedModelIds: ['stability-stablelm-2-1-6b-202401'],
+  },
+
+  // ── Audit additions (2026-11-13) ────────
+  // google
+  {
+    id: 'google-gemini-4-hydrogen-202611', name: 'Gemini 4 Hydrogen', version: '4 Hydrogen',
+    provider: 'google', releaseDate: '2026-11-12', notability: 4, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'audio', 'reasoning', 'multimodal'], contextWindow: 1000000,
+    pricing: { input: 1.5, output: 7.5, unit: 'USD / 1M tokens' },
+    pricingNote: 'Flat across the full context window; free tier available on the Gemini API. Batch $0.75 / $3.75.',
+    benchmarks: [{ name: 'Artificial Analysis Intelligence Index (high)', score: '51' }, { name: 'Artificial Analysis Intelligence Index (xhigh)', score: '54' }, { name: 'Terminal-Bench 4.1', score: '57%' }, { name: 'HLE-Diamond', score: '58.8%' }, { name: 'Agents\' Last Exam v1.1', score: '71.6%' }],
+    blurb: 'Fast, efficient Gemini 4 model aimed at everyday coding and agentic workflows, positioned as the successor to Gemini 3.8 Flash. Adds an xhigh thinking level and up to 1M output tokens; became the default model for the Antigravity agent in Gemini Managed Agents.',
+    sourceUrls: ['https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/', 'https://aistudio.google.com/docs/changelog', 'https://aistudio.google.com/docs/pricing'], relatedModelIds: ['google-gemini-4-carbon-202611', 'google-gemini-4-argon-202610', 'google-gemini38flash-202609'],
+  },
+  // alibaba
+  {
+    id: 'alibaba-qwen4-max-preview-202611', name: 'Qwen4-Max Preview', version: 'qwen4-max-preview',
+    provider: 'alibaba', releaseDate: '2026-11-11', notability: 4, releaseType: 'preview',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: 1000000,
+    pricing: null,
+    pricingNote: 'No per-token price published; pay-as-you-go not supported. Access only via flat-rate Token Plan subscription (reported from about $3-6/month for Lite; Singapore region), credit-based.',
+    benchmarks: [],
+    blurb: 'First callable model of the Qwen4 family, a closed time-limited preview with 1M-token context and up to 393,216 output tokens, accepting text, image and video input. Available 2026-11-11 10:00 to 2026-11-25 24:00 (UTC+8) via Alibaba Token Plan (also reported in Qwen App, QwenWork, Qoder), after which it is retired; Alibaba published no benchmarks, parameter count, license or weights.',
+    sourceUrls: ['https://docs.qwencloud.com/developer-guides/getting-started/latest-model', 'https://xenospectrum.com/en/qwen4-max-preview-specs-limitations/', 'https://ai-tldr.dev/releases/qwen-qwen4-max-preview/'], relatedModelIds: ['alibaba-qwen3.8-max-202608', 'alibaba-qwen3-8-flash-next-202608'],
+  },
+  // baidu
+  {
+    id: 'baidu-ernie-5-5-flash-preview-202611', name: 'ERNIE 5.5 Flash Preview', version: 'ernie-5.5-flash-preview',
+    provider: 'baidu', releaseDate: '2026-11-11', notability: 3, releaseType: 'preview',
+    modalities: ['text', 'reasoning'], contextWindow: 1000000,
+    pricing: null,
+    pricingNote: 'Official page states no price; third-party listings disagree (about $0.15-0.30 in / $0.60-1.20 out per 1M on one router; $0.28 / $1.13 on a reseller blog), so left null.',
+    benchmarks: [],
+    blurb: 'First post-trained (intermediate) version built on the ERNIE-5.5-Flash-Base checkpoint, a sparse MoE with 280B total and 14B active parameters, text-only with 1M-token context. API live on Baidu Qianfan; Baidu says weights will be open-sourced by 2026-11-25.',
+    sourceUrls: ['https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/', 'https://ernie.baidu.com/release/ernie-5-5-flash-base/', 'https://huggingface.co/baidu'], relatedModelIds: ['baidu-ernie-55-flash-base-202611', 'baidu-ernie5.1-202605'],
+  },
+  // ant
+  {
+    id: 'ant-ling-3-2-flash-202611', name: 'Ling-3.2-flash', version: '3.2-flash',
+    provider: 'ant', releaseDate: '2026-11-05', notability: 3, releaseType: 'flagship',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: 1000000,
+    pricing: null,
+    pricingNote: 'Launch promotion reportedly free API use for the first two weeks; no regular rate published as of 2026-11-13.',
+    benchmarks: [{ name: 'OmniDocBench 1.5 (vendor-reported)', score: '92.21' }],
+    blurb: 'Ant Group inclusionAI multimodal MoE model (reported 560B total / 25B active parameters) accepting text, image and video input with text output. Served via OpenAI- and Anthropic-compatible APIs; weights not released as of this refresh.',
+    sourceUrls: ['https://www.llmreference.com/model/ling-3.2-flash', 'https://www.gradually.ai/en/ai-models/ling-3.2-flash/', 'https://www.nocode.mba/ai-release-tracker/2026/11'], relatedModelIds: ['ant-ling-31-flash-202610'],
+  },
+  {
+    id: 'ant-zoomgain-9b-202611', name: 'ZoomGain-9B', version: '9B',
+    provider: 'ant', releaseDate: '2026-11-11', notability: 1, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'reasoning'], contextWindow: null,
+    pricing: null,
+    benchmarks: [],
+    blurb: 'Research 9B vision-language model from inclusionAI, RL-trained from Qwen3.5-9B on pairs of full-image and zoomed-in questions to improve fine-grained perception. Released with the ZoomGainBench benchmark (1,000 questions) and arXiv paper 2611.14076.',
+    sourceUrls: ['https://huggingface.co/inclusionAI/ZoomGain-9B'], relatedModelIds: [],
+  },
+  // microsoft
+  {
+    id: 'microsoft-mage-vl-cowork-202610', name: 'Mage-VL-Cowork', version: 'Mage-VL-Cowork 4B',
+    provider: 'microsoft', releaseDate: '2026-10-30', notability: 2, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'multimodal'], contextWindow: null,
+    pricing: null,
+    pricingNote: 'Open weights (Apache-2.0); no hosted pricing.',
+    benchmarks: [{ name: 'OSWorld-Verified (50 steps)', score: '66.0%' }],
+    blurb: 'Open-weight 4B computer-use model from Microsoft\'s Mage team that operates graphical interfaces and persistent terminal shells. Microsoft reports 66.0% on OSWorld-Verified with a 50-step budget (internal evaluation).',
+    sourceUrls: ['https://af.net/realtime/microsoft-releases-open-weight-4b-mage-vl-cowork-model/'], relatedModelIds: [],
+  },
+  // nvidia
+  {
+    id: 'nvidia-alpamayo-2-super-202608', name: 'Alpamayo 2 Super', version: 'Alpamayo 2 Super',
+    provider: 'nvidia', releaseDate: '2026-08-04', notability: 3, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: null,
+    pricing: null,
+    pricingNote: 'Open weights (OpenMDW-1.1; code Apache-2.0); no hosted pricing.',
+    benchmarks: [{ name: 'LingoQA (Lingo-Judge)', score: '79.2' }, { name: 'Open-loop minADE_6 @6.4s (m, lower is better)', score: '0.911' }],
+    blurb: 'Open reasoning vision-language-action model for Level 4 autonomous driving, about 34B parameters (32B VLM backbone plus a diffusion action expert). Takes multi-camera video and ego-motion history and produces driving trajectories with chain-of-causation explanations.',
+    sourceUrls: ['https://huggingface.co/nvidia/Alpamayo2-Super', 'https://thenextweb.com/news/nvidia-alpamayo-2-open-reasoning-driving-model'], relatedModelIds: ['nvidia-alpamayo-2-edge-202611'],
+  },
+  {
+    id: 'nvidia-alpamayo-2-edge-202611', name: 'Alpamayo 2 Edge', version: 'Alpamayo 2 Edge',
+    provider: 'nvidia', releaseDate: '2026-11-10', notability: 3, releaseType: 'open-weight',
+    modalities: ['text', 'vision', 'reasoning', 'multimodal'], contextWindow: null,
+    pricing: null,
+    pricingNote: 'Open weights (OpenMDW-1.1; code Apache-2.0); no hosted pricing.',
+    benchmarks: [{ name: 'LingoQA (Lingo-Judge)', score: '75.2' }, { name: 'AlpaSim closed-loop (km per at-fault incident)', score: '15.15' }, { name: 'Open-loop minADE_6 @5s (m, lower is better)', score: '0.52' }],
+    blurb: 'Compact vision-language-action model for autonomous driving built on Cosmos 3 Edge, with a roughly 2.45B-parameter VLM backbone and a 0.2B diffusion action expert. It takes six-camera video, navigation text and ego-motion history and outputs trajectories, and is meant for in-vehicle deployment.',
+    sourceUrls: ['https://huggingface.co/nvidia/Alpamayo2-Edge', 'https://blogs.nvidia.com/blog/open-models-europe-industry/'], relatedModelIds: ['nvidia-alpamayo-2-super-202608', 'nvidia-cosmos-3-edge-202607'],
+  },
+  // ibm
+  {
+    id: 'ibm-granite-switch-4-1-202610', name: 'Granite Switch 4.1', version: '4.1 / 4.1.1 (8B, 30B)',
+    provider: 'ibm', releaseDate: '2026-10-14', notability: 2, releaseType: 'open-weight',
+    modalities: ['text', 'audio'], contextWindow: 128000,
+    pricing: null,
+    pricingNote: 'Open weights (Apache 2.0); no hosted pricing found.',
+    benchmarks: [],
+    blurb: 'A modular checkpoint that bundles a Granite 4.1 base model (8B or 30B), activated-LoRA adapters (decision, guardian-core) and a 470M Granite Speech 5.0 TurboCTC encoder behind one endpoint. Revision 4.1.1 (Oct 27, 2026) updated the decision adapter and extended speech input from English to seven languages.',
+    sourceUrls: ['https://huggingface.co/ibm-granite/granite-switch-4.1-30b', 'https://huggingface.co/ibm-granite'], relatedModelIds: ['ibm-granite-4-1-202604', 'ibm-granite-speech-5-0-202610'],
+  },
+  {
+    id: 'ibm-granite-4-1-llmon-preview-202611', name: 'Granite 4.1 LLMON (preview)', version: '4.1 8B / 3B LLMON preview',
+    provider: 'ibm', releaseDate: '2026-11-12', notability: 2, releaseType: 'preview',
+    modalities: ['text'], contextWindow: null,
+    pricing: null,
+    pricingNote: 'Open weights (Apache 2.0) on Hugging Face; no hosted pricing found.',
+    benchmarks: [],
+    blurb: 'Preview fine-tunes of Granite 4.1 (8B and 3B) that read prompts in LLMON ("LLM Object Notation"), a structured format that separates trusted instructions from untrusted data such as retrieved documents and tool results. Released under Apache 2.0.',
+    sourceUrls: ['https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview', 'https://huggingface.co/ibm-granite'], relatedModelIds: ['ibm-granite-4-1-202604'],
   },
 ];
 

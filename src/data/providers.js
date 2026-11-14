@@ -52,6 +52,8 @@ export const PROVIDER_META = {
   runway:     { label: 'Runway', shortLabel: 'Runway', color: '#84cc16', group: 'other-us' },
   luma:       { label: 'Luma AI', shortLabel: 'Luma', color: '#fde047', group: 'other-us' },
   midjourney: { label: 'Midjourney', shortLabel: 'Midjourney', color: '#fb7185', group: 'other-us' },
+  snowflake:  { label: 'Snowflake', shortLabel: 'Snowflake', color: '#38bdf8', group: 'other-us' },
+  together:   { label: 'Together AI', shortLabel: 'Together', color: '#6366f1', group: 'other-us' },
 
   // Rest-of-World Labs
   mistral:    { label: 'Mistral AI (France)', shortLabel: 'Mistral', color: '#fa500f', group: 'row' },
@@ -61,6 +63,7 @@ export const PROVIDER_META = {
   tii:        { label: 'TII / Falcon (UAE)',  shortLabel: 'Falcon',  color: '#059669', group: 'row' },
   bfl:        { label: 'Black Forest Labs (Germany)', shortLabel: 'BFL', color: '#e5e7eb', group: 'row' },
   stability:  { label: 'Stability AI (UK)', shortLabel: 'Stability', color: '#7c3aed', group: 'row' },
+  kakao:      { label: 'Kakao (Kanana, Korea)', shortLabel: 'Kakao', color: '#facc15', group: 'row' },
 
   // Independent decision / classifier models
   typesafe:   { label: 'TypeSafe AI (Jev)', shortLabel: 'TypeSafe', color: '#38bdf8', group: 'decision' },
@@ -76,6 +79,9 @@ export const PROVIDER_META = {
   baseten:    { label: 'Baseten (Base Labs)', shortLabel: 'Baseten', color: '#c084fc', group: 'decision' },
   startlux:   { label: 'StartLux Labs', shortLabel: 'StartLux', color: '#f87171', group: 'decision' },
   vllmsr:     { label: 'vLLM Semantic Router', shortLabel: 'vLLM-SR', color: '#94a3b8', group: 'decision' },
+  parallel:   { label: 'Parallel (Decisions API)', shortLabel: 'Parallel', color: '#f59e0b', group: 'decision' },
+  autotrust:  { label: 'AutoTrust AI', shortLabel: 'AutoTrust', color: '#10b981', group: 'decision' },
+  morph:      { label: 'Morph (Reflex)', shortLabel: 'Morph', color: '#ec4899', group: 'decision' },
 };
 
 export const MODALITY_META = {
@@ -111,4 +117,4 @@ export function getRangeEnd() {
   return new Date();
 }
 
-export const DATA_AS_OF = '2026-11-10';
+export const DATA_AS_OF = '2026-11-13';
